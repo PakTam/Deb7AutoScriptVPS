@@ -1,0 +1,46 @@
+# go to root
+cd
+
+# disable ipv6
+echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
+sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
+
+# install wget and curl
+apt-get update;apt-get -y install wget curl;
+
+# set time GMT +8
+ln -fs /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
+
+# install fail2ban
+apt-get -y install fail2ban;
+service fail2ban restart
+
+# install ddos deflate
+cd
+apt-get -y install dnsutils dsniff
+wget https://github.com/PakTam/Deb7AutoScriptVPS/raw/master/ddos-deflate-master.zip
+unzip ddos-deflate-master.zip
+cd ddos-deflate-master
+./install.sh
+rm -rf /root/ddos-deflate-master.zip
+
+# update
+apt-get update
+
+# install webserver
+apt-get -y install nginx
+
+# install essential package
+apt-get -y install nano iptables dnsutils openvpn screen whois ngrep unzip unrar
+
+# install squid3
+cd
+apt-get -y install squid3
+wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/PakTam/Deb7AutoScriptVPS/master/squid3.conf"
+sed -i $MYIP2 /etc/squid3/squid.conf;
+service squid3 restart
+
+#xml parser
+cd
+apt-get -y --force-yes -f install libxml-parser-perl
+
