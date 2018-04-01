@@ -27,7 +27,16 @@ service ssh restart
 apt-get update
 
 # install essential package
-apt-get -y install nano iptables dnsutils openvpn screen whois ngrep unzip unrar
+apt-get -y install nano iptables dnsutils screen whois ngrep unzip unrar
+
+# install webmin
+cd
+wget http://prdownloads.sourceforge.net/webadmin/webmin_1.881_all.deb
+dpkg --install webmin_1.881_all.deb
+apt-get install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python
+apt-get -f install -y
+rm /root/webmin_1.881_all.deb
+service webmin restart
 
 # install squid3
 cd
@@ -52,11 +61,11 @@ rm -rf /root/ddos-deflate-master.zip
 # info
 clear
 
-echo "Squid3   : 8000, 8080 (limit to IP SSH)"  | tee -a log-install.txt
+echo "Squid3   : 3128, 8000, 8080 (limit to IP SSH)"  | tee -a log-install.txt
 
 echo "Other Features"  | tee -a log-install.txt
 echo "----------"  | tee -a log-install.txt
 echo "DDoS Deflate   : Anti-DDOS"  | tee -a log-install.txt
-echo "Webmin         : http://$MYIP:10000/"  | tee -a log-install.txt
+echo "Webmin         : https://$MYIP:10000/"  | tee -a log-install.txt
 echo "Timezone       : Asia/Kuala_Lumpur (GMT +8)"  | tee -a log-install.txt
 echo "IPv6           : [off]"  | tee -a log-install.txt
