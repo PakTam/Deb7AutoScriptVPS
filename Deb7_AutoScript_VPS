@@ -12,7 +12,7 @@ MYIP=$(wget -qO- ipv4.icanhazip.com);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 
 # Details of _PakTam_
-country=PH
+country=MY
 state=Kuala_Lumpur
 locality=Kuala_Lumpur
 organization=CoffeeWorks
