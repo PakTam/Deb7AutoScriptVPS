@@ -45,9 +45,9 @@ chmod +x Deb7_AutoScript_VPS
 ```
 ./Deb7_AutoScript_VPS
 ```
-```
+
 OR
-```
+
 ```
 wget https://raw.githubusercontent.com/PakTam/Deb7AutoScriptVPS/master/Deb7_AutoScript_VPSv2p1
 ```
