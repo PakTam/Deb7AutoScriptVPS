@@ -58,6 +58,18 @@ chmod +x Deb7_AutoScript_VPSv2p1
 ./Deb7_AutoScript_VPSv2p1
 ```
 
+SquidScript
+
+```
+wget https://raw.githubusercontent.com/PakTam/Deb7AutoScriptVPS/master/SquidScriptV2
+```
+```
+chmod +x SquidScriptV2
+```
+```
+./SquidScriptV2
+```
+
 ### FIX on Error: The certificate of `raw.githubusercontent.com' is not trusted.
 ```
 sudo apt-get install ca-certificates
